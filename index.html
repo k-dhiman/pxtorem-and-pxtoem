@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PX to REM & PX to EM</title>
+</head>
+<body>
+	<p>If you want to convert PX to REM, Please fill The Root Unit(Default 16px) and Element Unit</p>
+	<input type="number" class="rootUnit" value="16">
+	
+	<input placeholder="Element Unit" type="number" class="elementUnit">
+	
+
+	<button class="convert">
+		Convert
+	</button>
+	
+	<p>If you want to convert PX to EM, Please fill Parent Unit and Child unit</p>
+
+	<input type="number" class="ParentUnit" placeholder="Parent Unit">
+	<input type="number" class="childUnit" placeholder="Child Unit">
+
+	<button class="convertToEm">Convert</button>
+
+	<h2 class="resultShower"></h2>
+
+	<script>
+		document.querySelector('.convert').addEventListener('click', function(){
+			var rootUnit = document.querySelector('.rootUnit').value;
+			var elementUnit = document.querySelector('.elementUnit').value;
+			var finalUnit = (rootUnit / elementUnit);
+			document.querySelector('.resultShower').textContent = finalUnit + 'rem';
+		});
+		document.querySelector('.convertToEm').addEventListener('click', function(){
+			var ParentUnit = document.querySelector('.ParentUnit').value;
+			var childUnit = document.querySelector('.childUnit').value;
+			var finalUnit = (childUnit / ParentUnit);
+			document.querySelector('.resultShower').textContent = finalUnit + 'em';
+		});
+	</script>
+</body>
+</html>
